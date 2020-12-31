@@ -1,0 +1,25 @@
+<h1>
+    Countries
+</h1>
+
+<table>
+    <tr>
+    <th>Country Code</th>
+    
+    <th>Country Name</th>
+    <th>Country Details</th>
+    <th>Action</th>
+    </tr>
+    <% countries.forEach((country) => { %>
+    <tr>
+    <td><%= country.co_code %></td>
+    <td><%= country.co_name %></td>
+    <td><%= country.co_details %></td>
+    <td><%=  %></td>
+    <td><%=  %></td>
+    <td><%=  %></td>
+    </tr>
+    <% }) %>
+</table>
+
+<a href="/">Home</a>
