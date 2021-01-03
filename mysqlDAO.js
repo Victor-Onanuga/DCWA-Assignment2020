@@ -44,5 +44,21 @@ mysql.createPool({
     })
   }
 
-  module.exports = { getCities, getCountries }
+  var getCityDetails = function(cty_code) {
+    return new Promise ((resolve, reject) => {
+      var myQuery = {
+        sql: 'select * from city where cty_code = ?',
+        values: [cty_code]
+      }
+      pool.query(myQuery)
+      .then((result) => {
+        resolve(result)
+      })
+      .catch((error) => {
+        reject(error)
+      })
+    })
+  }
+
+  module.exports = { getCities, getCountries, getCityDetails}
   
