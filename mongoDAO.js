@@ -30,4 +30,17 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
         })
     }
 
-    module.exports = { getStateHeads }
+    var addStateHead = function(_id, headOfState){
+        return new Promise((resolve, reject)=> {
+            headsOfState.insertOne({"_id":_id, "headOfState":headOfState})// adding new head of state to database
+                .then((result)=> {
+                    resolve(result)
+                })
+                .catch((error) => {
+                    console.log(error)
+                    reject(error)
+                })
+        })
+    }
+
+    module.exports = { getStateHeads, addStateHead }
